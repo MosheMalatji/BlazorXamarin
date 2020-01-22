@@ -17,7 +17,7 @@ namespace BlazorXamarin
                 })
                 .Build();
 
-            host.AddComponent<HelloWorld>(parent: this);
+            host.AddComponent<ToDoApp>(parent: this);
         }
 
         protected override void OnStart()
