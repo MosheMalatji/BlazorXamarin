@@ -1,10 +1,13 @@
 ﻿<ContentPage>
     <StackLayout Margin="new Thickness(20)">
-
-        <Label Text="Hello, World!"
-               FontSize="40" />
-
+        <Label Text="100 days of coding challenge " FontSize="45" HorizontalOptions="LayoutOptions.CenterAndExpand" FontAttributes="FontAttributes.Bold"/>
+        <Label Text="@("Hello " + Name)"
+               FontSize="35" />
         <Counter />
-
     </StackLayout>
+       @code
+        { 
+            string Name = "Tom";
+            
+        }
 </ContentPage>
