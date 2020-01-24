@@ -6,15 +6,15 @@
             <Button Text="Add" OnClick="OnAddItem" />
         </StackLayout>
         @* TodoItem area *@
-
-    <ScrollView>
-        <StackLayout>
-            @foreach (var item in items)
-            {
-                <TodoItemDisplay Item="item" />
-            }
-        </StackLayout>
-    </ScrollView>
+        @* TodoItem This! *@
+        <ScrollView>
+            <StackLayout>
+                @foreach (var item in items)
+                {
+                    <TodoItemDisplay Item="item" />
+                }
+            </StackLayout>
+        </ScrollView>
     </StackLayout>
 
 </ContentPage>
@@ -25,7 +25,7 @@
 
     List<TodoItem> items = new List<TodoItem>();
 
-    void OnAddItem()
+    public void OnAddItem()
     {
         var newTodoItem = new TodoItem
         {

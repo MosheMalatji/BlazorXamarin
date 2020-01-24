@@ -2,22 +2,29 @@
 using Microsoft.MobileBlazorBindings;
 using Microsoft.Extensions.Hosting;
 using Xamarin.Forms;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorXamarin
 {
     public class App : Application
     {
-        public App()
+        public IHost AppHost{get; }
+        public App(IServiceCollection additionalServices)
         {
-            var host = Host.CreateDefaultBuilder()
+            AppHost = Host.CreateDefaultBuilder()
                 .ConfigureServices((hostContext, services) =>
                 {
                     // Register app-specific services
-                    //services.AddSingleton<AppState>();
+                    if (additionalServices != null)
+                    {
+                        services.AddAdditionalServices(additionalServices);
+                    }
+                    //Register app-specific services
+                    services.AddSingleton<AppState>();
                 })
                 .Build();
 
-            host.AddComponent<ToDoApp>(parent: this);
+            AppHost.AddComponent<ToDoApp>(parent: this);
         }
 
         protected override void OnStart()

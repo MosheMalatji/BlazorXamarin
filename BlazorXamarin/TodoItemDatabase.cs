@@ -4,9 +4,7 @@ using System.Text;
 
 namespace BlazorXamarin
 {
-    public class TodoItem
+    public class TodoItemDatabase
     {
-        public string Text { get; set; }
-        public bool IsDone { get; set; }
     }
 }
